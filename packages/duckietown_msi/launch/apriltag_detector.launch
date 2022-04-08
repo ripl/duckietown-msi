@@ -1,0 +1,19 @@
+<launch>
+	<arg name="veh" default="$(env VEHICLE_NAME)"/>
+	<arg name="verbose" default="false"/>
+
+	<!-- Image Rectification -->
+	<remap from="rectifier_node/image_in" to="camera_node/image/compressed"/>
+	<remap from="rectifier_node/camera_info_in" to="camera_node/camera_info"/>
+	<include file="$(find image_processing)/launch/image_rectification.launch">
+		<arg name="veh" value="$(arg veh)"/>
+	</include>
+
+	<!-- Detector node -->
+	<remap from="apriltag_detector_node/image" to="camera_node/image/compressed" />
+	<remap from="apriltag_detector_node/camera_info" to="camera_node/camera_info" />
+	<include file="$(find apriltag)/launch/apriltag_detector_node.launch">
+		<arg name="veh" value="$(arg veh)"/>
+		<arg name="param_file" value="$(find apriltag_behaviors)/config/apriltag_detector_node/default.yaml"/>
+	</include>
+</launch>

@@ -1,0 +1,21 @@
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="pkg_name" value="lane_following"/>
+    <arg name="node_name" default="lane_following_node"/>
+    <arg name="config" default="baseline" doc="Specify a config."/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex: duckiebot."/>
+
+    <!-- Subscription -->
+    <!-- "detections": duckietown_msgs/AprilTagDetectionArray. Tag detections. -->
+
+    <!-- Publication -->
+
+    <group ns="$(arg veh)">
+        <remap from="lane_following_node/image" to="camera_node/image/compressed"/>
+        <remap from="lane_following_node/camera_info" to="camera_node/camera_info"/>
+        <remap from="lane_following_node/wheels_cmd" to="wheels_driver_node/wheels_cmd"/>
+
+        <node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+        </node>
+    </group>
+</launch>

@@ -1,0 +1,15 @@
+<launch>
+	<arg name="veh" default="$(env VEHICLE_NAME)"/>
+	<arg name="verbose" default="false"/>
+
+	<!-- Lane Following behaviors -->
+	<include file="$(find duckietown_msi)/launch/apriltag_detector.launch">
+		<arg name="veh" value="$(arg veh)"/>
+	</include>
+
+	<!-- Lane Following behaviors -->
+	<include file="$(find apriltag_behaviors)/launch/apriltag_behaviors_node.launch">
+		<arg name="veh" value="$(arg veh)"/>
+		<arg name="param_file_name" value="lane_following"/>
+	</include>
+</launch>

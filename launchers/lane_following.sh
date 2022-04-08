@@ -13,7 +13,7 @@ dt-launchfile-init
 # NOTE: Use `dt-exec COMMAND` to run the main process (blocking process)
 
 # launching app
-roslaunch duckietown_msi lane_following.launch veh:=${VEHICLE_NAME}
+roslaunch lane_following lane_following_node.launch veh:=${VEHICLE_NAME}
 
 
 # ----------------------------------------------------------------------------

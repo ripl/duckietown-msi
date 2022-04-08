@@ -1,0 +1,6 @@
+# Parameters for apriltag behaviors node
+behaviors:
+    - tag: 198
+      name: "JOYSTICK_MODE"
+    - tag: 199
+      name: "LANE_FOLLOWING_MODE"

@@ -1,1 +1,6 @@
 # LIST YOUR PYTHON3 PACKAGES HERE
+
+lib-dt-computer-vision>=0.0.6
+lib-dt-state-estimation>=0.0.5
+lib-dt-modeling>=0.0.3
+lib-dt-motion-planning>=0.0.1
