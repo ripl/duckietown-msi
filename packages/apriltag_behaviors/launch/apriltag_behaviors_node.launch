@@ -12,6 +12,7 @@
 
     <group ns="$(arg veh)">
         <remap from="apriltag_behaviors_node/detections" to="apriltag_detector_node/detections"/>
+        <remap from="apriltag_behaviors_node/joystick_override" to="joy_mapper_node/joystick_override"/>
 
         <node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
             <rosparam command="load"
