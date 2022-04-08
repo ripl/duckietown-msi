@@ -28,7 +28,7 @@ class AprilTagBehavior(DTROS):
         )
         # create subscribers
         self.pub_joy_override = rospy.Publisher(
-            "~joystick_override", BoolStamped, queue_size=1, dt_topic_type=TopicType.CONTROL
+            "~joystick_override", BoolStamped, queue_size=1
         )
         # internal state
         self._last_behavior = None
